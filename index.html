@@ -1,96 +1,283 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIEP Camaquã</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        header {
-            background-color: #0CAF50;
-            color: yellow;
-            text-align: center;
-            padding: 10px 0;
-        }
-        section {
-            padding: 20px;
-            margin: 10px;
-            background-color: white;
-            border-radius: 8px;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #333;
-            color: white;
-        }
-        h1, h2 {
-            font-size: 30px;
-        }
-        h3 {
-            font-size: 20px;
-        }
-        p {
-            font-size: 16px;
-        }
-        .activities {
-            background-color: #e7f7e7;
-            border-left: 5px solid #4CAF50;
-            padding: 15px;
-            margin-top: 20px;
-        }
-        .activities ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .activities li {
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-        .news {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #d9f7d9;
-            border-left: 5px solid #4CAF50;
-        }
-        .news ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .news li {
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eco Style Bag</title>
+<style>
+    :root {
+        --verde-logo: #2E8B57;
+        --azul-jeans: #1E90FF;
+        --bege-elegante: #FFF8E7;
+        --marrom-suave: #D2691E;
+        --branco: #FFFFFF;
+    }
+
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bege-elegante);
+        color: #222;
+        overflow-x: hidden;
+    }
+
+    header {
+        background-color: var(--verde-logo);
+        color: var(--branco);
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        animation: slideDown 1s ease-out;
+    }
+
+    header img {
+        width: 150px;
+        height: auto;
+        margin-bottom: 10px;
+        animation: fadeIn 1.5s ease-in;
+    }
+
+    h1 {
+        font-size: 36px;
+        margin: 0;
+        color: var(--branco);
+    }
+
+    section {
+        background-color: var(--branco);
+        border-radius: 12px;
+        margin: 20px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        animation: fadeUp 1s ease-out;
+    }
+
+    h3 {
+        color: var(--azul-jeans);
+        font-size: 26px;
+        margin-bottom: 10px;
+        animation: fadeInRight 1s ease-out;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        animation: fadeIn 1.2s ease-in;
+    }
+
+    li {
+        font-size: 17px;
+        padding: 8px 0;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .product-display {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+        animation: fadeUp 1.3s ease-out;
+    }
+
+    .product-display img {
+        width: 240px;
+        height: 320px;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        animation: zoomIn 1.2s ease-out;
+    }
+
+    .product-display img:hover {
+        transform: scale(1.05);
+    }
+
+    .product-description {
+        flex: 1;
+        font-size: 16px;
+        animation: fadeInLeft 1.5s ease-out;
+    }
+
+    .cta-button {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 12px 24px;
+        background-color: var(--azul-jeans);
+        color: var(--branco);
+        border: none;
+        border-radius: 15px;
+        text-decoration: none;
+        font-weight: bold;
+        animation: pulse 2s infinite;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .cta-button:hover {
+        background-color: #187bcd;
+        transform: scale(1.08);
+    }
+
+    footer {
+        text-align: center;
+        padding: 15px;
+        background-color: var(--marrom-suave);
+        color: var(--branco);
+        animation: fadeIn 1s ease-in;
+    }
+
+    a {
+        color: var(--branco);
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    /* Animações */
+    @keyframes fadeIn {
+        from { opacity: 0; } to { opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInLeft {
+        from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInRight {
+        from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes slideDown {
+        from { transform: translateY(-100px); opacity: 0; } to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes zoomIn {
+        from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes pulse {
+        0%, 100% { box-shadow: 0 0 0 0 rgba(30, 144, 255, 0.4); }
+        50% { box-shadow: 0 0 0 12px rgba(30, 144, 255, 0); }
+    }
+</style>
 </head>
 <body>
     <header>
-        <img src="logo.png" alt="Logo">
-        <h1><strong>CIEP Camaquã</strong></h1>
+        <img src="logo.png" alt="Logo Eco Style Bag">
     </header>
 
     <section class="news">
-        <h3>Avisos:</h3>
-        <ul id="news-list">
-            <li><strong>Isso é apenas um teste!</strong></li>
-        </ul>
-    </section>
-    
-    <section class="news">
-        <h3>Regras:</h3>
-        <ul id="news-list">
-            <li><strong>-> Apenas um teste!</strong></li>
+        <h3>Sobre o Produto:</h3>
+        <ul>
+            <li><strong>Bolsas feitas com jeans reciclado e costura artesanal.</strong></li>
+            <li>Design exclusivo, sustentável e resistente.</li>
         </ul>
     </section>
 
+    <section class="news">
+        <h3>Exibição do Produto:</h3>
+        <div class="product-display">
+            <img src="produto.jpg" alt="Bolsa Eco Style">
+            <div class="product-description">
+                <p><strong>Modelo: Bolsa Verde Estilo</strong></p>
+                <p>Feita 100% com jeans reciclado, costura reforçada à mão, ideal para o dia a dia e para quem busca estilo com consciência ecológica.</p>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>© Criado por <a href="www.test.com/"><strong>Arichel dos Santos Moron.</strong></a></p>
+        <p><a class="cta-button" href="https://www.test.com/">Clique Aqui!</a></p>
     </footer>
-    
+
+    <!-- Botão Tema -->
+    <button id="toggle-theme" style="
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      padding: 10px 14px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    ">Modo Escuro</button>
+
+    <script>
+      // Tema Claro / Escuro
+      const button = document.getElementById('toggle-theme');
+      const root = document.documentElement;
+      const lightTheme = {
+        '--verde-logo': '#2E8B57',
+        '--azul-jeans': '#1E90FF',
+        '--bege-elegante': '#FFF8E7',
+        '--marrom-suave': '#D2691E',
+        '--branco': '#FFFFFF',
+        textColor: '#222',
+        buttonText: 'Modo Escuro'
+      };
+
+      const darkTheme = {
+        '--verde-logo': '#1c3b2d',
+        '--azul-jeans': '#0e5fa0',
+        '--bege-elegante': '#1a1a1a',
+        '--marrom-suave': '#2f1e0e',
+        '--branco': '#121212',
+        textColor: '#e0e0e0',
+        buttonText: 'Modo Claro'
+      };
+
+      function applyTheme(theme) {
+        for (let key in theme) {
+          if (key.startsWith('--')) {
+            root.style.setProperty(key, theme[key]);
+          } else if (key === 'textColor') {
+            document.body.style.color = theme[key];
+          } else if (key === 'buttonText') {
+            button.textContent = theme[key];
+          }
+        }
+      }
+
+      function toggleTheme() {
+        const current = localStorage.getItem('theme') || 'light';
+        const next = current === 'light' ? 'dark' : 'light';
+        localStorage.setItem('theme', next);
+        applyTheme(next === 'dark' ? darkTheme : lightTheme);
+      }
+
+      button.onclick = toggleTheme;
+
+      // Animação de Máquina de Escrever
+      function typeWriterEffect() {
+        const h3 = document.querySelector('.news h3');
+        const text = "Sobre o Produto:";
+        h3.textContent = "";
+        let i = 0;
+        const speed = 70;
+        const typer = setInterval(() => {
+          if (i < text.length) {
+            h3.textContent += text.charAt(i);
+            i++;
+          } else {
+            clearInterval(typer);
+          }
+        }, speed);
+      }
+
+      window.onload = () => {
+        const saved = localStorage.getItem('theme') || 'light';
+        applyTheme(saved === 'dark' ? darkTheme : lightTheme);
+        typeWriterEffect();
+      };
+    </script>
 </body>
-</html>
+    </html>
